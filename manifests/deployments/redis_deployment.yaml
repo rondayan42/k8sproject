@@ -12,6 +12,7 @@ spec:
   template:
     metadata:
       labels:
+        app: voting
         microapp: voting-redis
     spec:
       containers:
