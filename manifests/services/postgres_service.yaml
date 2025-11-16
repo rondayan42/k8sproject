@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: voting-app
+spec:
+  selector:
+    app: voting
+  ports:
+    - name: postgres-port
+      port: 5432
+      targetPort: 5432
+      type: ClusterIP

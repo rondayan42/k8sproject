@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: voting-app
+spec:
+  selector:
+    app: voting
+  ports:
+    - name: redis-port
+      port: 6379
+      targetPort: 6379
+      type: ClusterIP
