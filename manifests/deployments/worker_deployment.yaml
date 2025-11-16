@@ -7,15 +7,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: voting
+      app: voting-worker
   template:
     metadata:
       labels:
-        app: voting
+        app: voting-worker
     spec:
       containers:
         - name: worker-container
           image: dockersamples/examplevotingapp_worker:latest
-          
-      
-  

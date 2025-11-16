@@ -5,7 +5,7 @@ metadata:
   namespace: voting-app
 spec:
   selector:
-    app: voting
+    app: voting-redis
   ports:
     - name: redis-port
       port: 6379
