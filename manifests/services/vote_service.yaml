@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app: voting
+    microapp: voting-frontend
   ports:
     - name: voting-port
       port: 80

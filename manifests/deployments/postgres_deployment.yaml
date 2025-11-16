@@ -7,15 +7,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: voting-postgres
+      app: voting
+      microapp: voting-postgres
   template:
     metadata:
       labels:
-        app: voting-postgres
+        microapp: voting-postgres
     spec:
       containers:
         - name: db-container
           image: postgres:15-alpine
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
           ports:
           - containerPort: 5432
           

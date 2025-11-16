@@ -8,10 +8,12 @@ spec:
   selector:
     matchLabels:
       app: voting
+      microapp: voting-frontend
   template:
     metadata:
       labels:
         app: voting
+        microapp: voting-frontend
     spec:
       containers:
         - name: votefrontend

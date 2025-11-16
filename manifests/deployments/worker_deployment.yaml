@@ -7,11 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: voting-worker
+      app: voting
+      app2: result
+      microapp: voting-worker
   template:
     metadata:
       labels:
-        app: voting-worker
+        app: voting
+        microapp: voting-worker
     spec:
       containers:
         - name: worker-container

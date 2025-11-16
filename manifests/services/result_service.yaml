@@ -5,7 +5,8 @@ metadata:
   namespace: voting-app
 spec:
   selector:
-    app: result
+    app2: result
+    microapp: result-frontend
   ports:
     - name: result-port
       port: 80

@@ -7,11 +7,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: voting-redis
+      app: voting
+      microapp: voting-redis
   template:
     metadata:
       labels:
-        app: voting-redis
+        microapp: voting-redis
     spec:
       containers:
         - name: redis-container
