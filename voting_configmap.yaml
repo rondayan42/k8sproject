@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: voting-config
+  namespace: voting-app
+data:
+  option_a: "Cats"
+  option_b: "Dogs"
+  redis_host: "redis"
+
