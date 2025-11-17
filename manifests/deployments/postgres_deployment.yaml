@@ -22,15 +22,13 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: voting-secret-db
-                  key: POSTGRES_USER 
+                  name: voting-secret-postgres
+                  key: username
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: voting-secret-db
-                  key: POSTGRES_PASSWORD
+                  name: voting-secret-postgres
+                  key: password
           ports:
-          - containerPort: 5432
-          
-      
+            - containerPort: 5432
   

@@ -4,7 +4,7 @@ metadata:
   name: voting-config
   namespace: voting-app
 data:
-  option_a: "Cats"
-  option_b: "Dogs"
+  option_a: "Sci-Fi"
+  option_b: "Fantasy"
   redis_host: "redis"
 
