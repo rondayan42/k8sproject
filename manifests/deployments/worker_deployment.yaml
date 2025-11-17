@@ -3,6 +3,17 @@ kind: Deployment
 metadata:
   name: worker
   namespace: voting-app
+  env:
+    - name: REDIS_HOST
+      valueFrom:
+        configMapKeyRef:
+          name: worker-config
+          key: redis_host
+    - name: POSTGRES_HOST
+      valueFrom:
+        configMapKeyRef:
+          name: worker-config
+          key: postgres_host
 spec:
   replicas: 1
   selector:

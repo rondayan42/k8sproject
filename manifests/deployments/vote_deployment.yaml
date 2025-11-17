@@ -3,6 +3,17 @@ kind: Deployment
 metadata:
   name: vote
   namespace: voting-app
+  env:
+    - name: OPTION_A
+      valueFrom:
+        configMapKeyRef:
+          name: voting-config
+          key: option_a
+    - name: OPTION_B
+      valueFrom:
+        configMapKeyRef:
+          name: voting-config
+          key: option_b
 spec:
   replicas: 2
   selector:
