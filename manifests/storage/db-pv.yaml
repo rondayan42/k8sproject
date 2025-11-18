@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-pv
+  namespace: voting-app 
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: db-storage
+  local:
+    path: C:\Users\moonl\OneDrive\Desktop\k8sproject\pv-data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - microapp: voting-postgres
+          values:
+          - node-01-hostname # The specific node this local storage resides on
