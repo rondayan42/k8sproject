@@ -15,14 +15,16 @@ spec:
         app: voting
         microapp: voting-postgres
     spec:
+      volumes:
+          - name: postgres-storage
+            persistentVolumeClaim:
+              claimName: db-pvc
       containers:
       - name: db-container
         image: postgres:15-alpine
-        volumes:
+        volumeMounts:
           - name: postgres-storage
             mountPath: /var/lib/postgresql/data
-            persistentVolumeClaim:
-              claimName: db-pvc
         env:
           - name: POSTGRES_USER
             valueFrom:
