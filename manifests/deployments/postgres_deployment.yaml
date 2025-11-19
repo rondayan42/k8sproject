@@ -16,19 +16,24 @@ spec:
         microapp: voting-postgres
     spec:
       containers:
-        - name: db-container
-          image: postgres:15-alpine
-          env:
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: voting-secret-postgres
-                  key: username
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: voting-secret-postgres
-                  key: password
-          ports:
-            - containerPort: 5432
+      - name: db-container
+        image: postgres:15-alpine
+        volumes:
+          - name: postgres-storage
+            mountPath: /var/lib/postgresql/data
+            persistentVolumeClaim:
+              claimName: db-pvc
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: voting-secret-postgres
+                key: username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: voting-secret-postgres
+                key: password
+        ports:
+          - containerPort: 5432
   

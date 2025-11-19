@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: db-pv
+  name: redis-pv
 spec:
   capacity:
     storage: 1Gi
@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: voting-storage
   local:
-    path: /run/desktop/mnt/host/c/Users/moonl/Desktop/k8sproject/pv-data
+    path: /run/desktop/mnt/host/c/Users/moonl/Desktop/k8sproject/redis-data
   nodeAffinity:
     required:
       nodeSelectorTerms:

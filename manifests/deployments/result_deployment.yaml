@@ -16,16 +16,16 @@ spec:
         microapp: result-frontend
     spec:
       containers:
-        - name: result
-          image: dockersamples/examplevotingapp_result:latest
-          env:
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: result-config
-                  key: postgres_host
-          ports:
-            - containerPort: 80
+      - name: result
+        image: dockersamples/examplevotingapp_result:latest
+        env:
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: result-config
+                key: postgres_host
+        ports:
+          - containerPort: 80
           
       
   
