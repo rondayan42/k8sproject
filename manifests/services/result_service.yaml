@@ -4,7 +4,7 @@ metadata:
   name: result-service
   namespace: voting-app
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app2: result
     microapp: result-frontend
@@ -12,5 +12,4 @@ spec:
     - name: result-port
       port: 80
       targetPort: 80
-      nodePort: 31001
       

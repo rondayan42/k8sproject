@@ -4,7 +4,7 @@ metadata:
   name: vote-service
   namespace: voting-app
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: voting
     microapp: voting-frontend
@@ -12,5 +12,4 @@ spec:
     - name: voting-port
       port: 80
       targetPort: 80
-      nodePort: 31000
       

@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: worker-pdb
+  namespace: voting-app
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: voting
+      app2: result
+      microapp: voting-worker
+

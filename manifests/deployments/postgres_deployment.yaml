@@ -38,4 +38,27 @@ spec:
                 key: password
         ports:
           - containerPort: 5432
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - pg_isready -U $POSTGRES_USER
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - pg_isready -U $POSTGRES_USER
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
   

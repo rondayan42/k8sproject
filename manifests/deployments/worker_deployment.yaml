@@ -31,3 +31,26 @@ spec:
                 configMapKeyRef:
                   name: worker-config
                   key: postgres_host
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - ps aux | grep -v grep | grep worker
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - ps aux | grep -v grep | grep worker
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
